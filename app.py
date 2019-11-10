@@ -25,5 +25,10 @@ def scrape():
 
     return 'Scraped!'
 
+@app.route('/')
+def home ():
+    info=db.mars_info.find_one()
+    return render_template('index.html', info = info)
+
 if __name__ == "__main__":
     app.run(debug=True)

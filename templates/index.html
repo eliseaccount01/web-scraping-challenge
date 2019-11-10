@@ -18,7 +18,30 @@
 </head>
 
 <body>
-    
+    <section>
+        <h3>Latest Mars News</h3>
+        <h4>{{info.article_title}}</h4>
+        <p>{{info.article_body}}</p>
+    </section>
+    <section>
+        <h3> Featured Mars Image </h3>
+        <img src="{{info.large_image_url}}" />
+    </section>
+    <section>
+        <h5>Current Weather on Mars </h5>
+        <p>{{info.mars_weather}}</p>
+    </section>
+    <section>
+        <h6>Mars Facts!</h6>
+        {{info.mars_facts_table|safe}}
+    </section>
+    <section>
+        <h3>Mars Hemispheres </h3>
+        {% for item in info.photo_links_and_titles %}
+        <div> <img src="{{item.img_url}}">
+            <span>{{item.title}}</span> </div>
+        {% endfor %}
+    </section>
 </body>
 
 </html>

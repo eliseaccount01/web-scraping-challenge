@@ -95,7 +95,7 @@ def scrape():
         
         photo_title = pg_soup.find(class_='content').find(class_='title').get_text()
         
-        img_url = pg_soup.find(text= 'Original').parent.get('href')
+        img_url = pg_soup.find(text= 'Sample').parent.get('href')
         
         photo_links_and_titles.append({'title':photo_title, 
                                     'img_url': img_url})
