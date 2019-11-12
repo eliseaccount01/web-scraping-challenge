@@ -18,29 +18,58 @@
 </head>
 
 <body>
-    <section>
-        <h3>Latest Mars News</h3>
+    <div class="jumbotron">
+        <h1 class="display-4 text-center text-monospace">Mission to Mars!</h1>
+        <hr class="my-4">
+        <p class="text-center text-monospace">Want the latest information on Mars? Well you have come to the correct
+            place! Click the button below to
+            obtain the latest news on Mars. Happy learning! </p>
+        <div class="text-center">
+            <a class="btn btn-danger btn-outline-dark btn-lg" href="/scrape" role="button">Scrape New Data</a>
+        </div>
+    </div>
+
+    <div class='container-fluid'>
+        <h2>Latest Mars News</h2>
         <h4>{{info.article_title}}</h4>
         <p>{{info.article_body}}</p>
-    </section>
-    <section>
-        <h3> Featured Mars Image </h3>
-        <img src="{{info.large_image_url}}" />
-    </section>
-    <section>
-        <h5>Current Weather on Mars </h5>
-        <p>{{info.mars_weather}}</p>
-    </section>
-    <section>
-        <h6>Mars Facts!</h6>
-        {{info.mars_facts_table|safe}}
-    </section>
-    <section>
-        <h3>Mars Hemispheres </h3>
-        {% for item in info.photo_links_and_titles %}
-        <div> <img src="{{item.img_url}}">
-            <span>{{item.title}}</span> </div>
-        {% endfor %}
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <h3> Featured Mars Image </h3>
+                <img src="{{info.large_image_url}}" class="rounded float-left img-fluid" width="800" height="600"
+                    class="half" style="vertical-align:baseline; height:500px; width:auto" />
+            </div>
+            <div class="border border-danger col-md-4">
+                <ul class="list-group">
+                    <section>
+                        <h5>Current Weather on Mars </h5>
+                        <p>{{info.mars_weather}}</p>
+                    </section>
+                    <section>
+                        <h6>Mars Facts!</h6>
+                        {{info.mars_facts_table|safe}}
+                    </section>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="container">
+        <div class="row">
+            <h3>Mars Hemispheres </h3>
+        </div>
+        <div class="row">
+            {% for item in info.photo_links_and_titles %}
+            <div class='card body col-lg-6' style='width: 18rem;'>
+                <img src="{{item.img_url}}" class='card-img-top'>
+                <p class="card text">{{item.title}}</p>
+            </div>
+            {% endfor %}
+
+        </div>
     </section>
 </body>
 
